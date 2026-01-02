@@ -4,6 +4,7 @@ import { singleProductThunk } from '../../../Redux/Actions/SingleProductThunk';
 import { useParams } from 'react-router-dom';
 import Loader from '../Loader';
 import { Carousel } from 'react-responsive-carousel';
+import MetaData from '../MetaData';
 
 const ProductDetails = () => {
     const { id } = useParams()
@@ -18,6 +19,7 @@ const ProductDetails = () => {
     console.log("product", product.images)
     return (
         <>
+            <MetaData title={product?.name} />
             {loading ? (
                 <Loader />
             ) : (

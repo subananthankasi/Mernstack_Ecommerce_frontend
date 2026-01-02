@@ -8,10 +8,11 @@ const Product = ({ item }) => {
                 <img
                     className="card-img-top mx-auto"
                     src={item.images[0].image}
+                    alt='mern'
                 />
                 <div className="card-body d-flex flex-column">
                     <h5 className="card-title">
-                        <a href="">{item.name}</a>
+                        <p>{item.name}</p>
                     </h5>
                     <div className="ratings mt-auto">
                         <div className="rating-outer">
