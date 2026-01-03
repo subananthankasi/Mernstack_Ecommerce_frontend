@@ -629,3 +629,26 @@ element.style {
 .carousel .thumb {
   height: 80px !important;
 }
+:where(.css-dev-only-do-not-override-xbngoj).ant-pagination
+  .ant-pagination-item-active {
+  font-weight: var(--ant-font-weight-strong);
+  background-color: var(--ant-pagination-item-active-bg);
+  border-color: #fa9c23 !important;
+}
+:where(.css-dev-only-do-not-override-xbngoj).ant-pagination
+  .ant-pagination-item-active
+  a {
+  color: #fa9c23 !important;
+}
+.btn-danger {
+    color: #fff;
+    background-color: #fa9c23 !important;
+    border-color: #fa9c23 !important;
+    border-radius: 50%;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #fa9c23 !important;
+    border-color: #fa9c23 !important;
+    border-radius: 50%;
+}

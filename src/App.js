@@ -7,7 +7,10 @@ import { HelmetProvider } from 'react-helmet-async';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import 'rc-slider/assets/index.css';
 import ProductDetails from './Components/Layouts/Product/ProductDetails';
+import ProductSearch from './Components/Layouts/Product/ProductSearch';
+import Login from './Components/User/Login';
 
 function App() {
   return (
@@ -19,6 +22,8 @@ function App() {
             <ToastContainer theme='dark' />
             <Routes>
               <Route path='/' element={<Home />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/search/:keyword' element={<ProductSearch />} />
               <Route path='/product/:id' element={<ProductDetails />} />
             </Routes>
           </div>

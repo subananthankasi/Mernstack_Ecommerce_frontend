@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { singleProductThunk } from '../../../Redux/Actions/SingleProductThunk';
 import { useParams } from 'react-router-dom';
 import Loader from '../Loader';
 import { Carousel } from 'react-responsive-carousel';
 import MetaData from '../MetaData';
+import { singleProductThunk } from '../../../Redux/Actions/ProductAction';
 
 const ProductDetails = () => {
     const { id } = useParams()
@@ -16,7 +16,6 @@ const ProductDetails = () => {
     }, [dispatch, id])
     const product = useSelector((state) => state.singleData?.data?.product?.[0] || {})
     const loading = useSelector((state) => state.singleData?.loading)
-    console.log("product", product.images)
     return (
         <>
             <MetaData title={product?.name} />
