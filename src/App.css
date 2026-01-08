@@ -640,15 +640,11 @@ element.style {
   a {
   color: #fa9c23 !important;
 }
-.btn-danger {
-    color: #fff;
-    background-color: #fa9c23 !important;
-    border-color: #fa9c23 !important;
-    border-radius: 50%;
-}
-.btn-primary {
-    color: #fff;
-    background-color: #fa9c23 !important;
-    border-color: #fa9c23 !important;
-    border-radius: 50%;
+
+
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+    color: var(--bs-btn-active-color);
+    background-color: var(--bs-btn-active-bg);
+    border-color: none !important;
+    border: none !important;
 }

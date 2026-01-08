@@ -1,14 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import MetaData from '../Layouts/MetaData'
 import { useDispatch, useSelector } from 'react-redux'
-import { loginThunk } from '../../Redux/Actions/authAction'
+import { getProfileThunk, loginThunk } from '../../Redux/Actions/authAction'
 import { toast } from 'react-toastify'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const Login = () => {
+    const location = useLocation()
+    const navigate = useNavigate()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const dispatch = useDispatch()
-    const { loading, error } = useSelector((state) => state.login)
+    const { loading  } = useSelector((state) => state.login) 
+    const { isAuthenticate } = useSelector((state) => state.authState);
+
+    const redirect = location.search ? location.search.split('=')[1] : '/'
+    console.log("redddd",redirect)
+useEffect(() => {
+  if (isAuthenticate) {
+    navigate(redirect === "shipping" ? "/shipping" : "/");
+  }
+}, [isAuthenticate, redirect, navigate]);
     const loginHandler = async (e) => {
         e.preventDefault()
 
@@ -18,6 +30,9 @@ const Login = () => {
             toast.success("Successfully logged in", {
                 position: "bottom-center",
             })
+            dispatch(getProfileThunk())
+            navigate(redirect)
+
         } catch (err) {
             toast.error(err, {
                 position: "bottom-center",
@@ -44,7 +59,7 @@ const Login = () => {
                         </div>
 
                         <div className="form-group">
-                            <label for="password_field">Password</label>
+                            <label htmlFor="password_field">Password</label>
                             <input
                                 type="password"
                                 id="password_field"
@@ -54,7 +69,7 @@ const Login = () => {
                             />
                         </div>
 
-                        <a href="#" className="float-right mb-4">Forgot Password?</a>
+                        <Link to="/password/reset" className="float-right mb-4">Forgot Password?</Link>
 
                         <button
                             id="login_button"
@@ -65,7 +80,7 @@ const Login = () => {
                             LOGIN
                         </button>
 
-                        <a href="#" className="float-right mt-3">New User?</a>
+                        <Link to="/register" className="float-right mt-3">New User?</Link>
                     </form>
                 </div>
             </div>

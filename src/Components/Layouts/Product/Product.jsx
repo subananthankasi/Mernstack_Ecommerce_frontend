@@ -1,10 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Product = ({ item,col }) => {
+    const navigate = useNavigate();
     return (
         <div className={`col-sm-12 col-md-6 col-lg-${col} my-3`} key={item._id}>
-            <div className="card p-3 rounded">
+            <div className="card p-3 rounded" onClick={()=> navigate(`/product/${item._id}`)} style={{cursor:"pointer"}}>
                 <img
                     className="card-img-top mx-auto"
                     src={item.images[0].image}
