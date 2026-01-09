@@ -15,7 +15,6 @@ const Login = () => {
     const { isAuthenticate } = useSelector((state) => state.authState);
 
     const redirect = location.search ? location.search.split('=')[1] : '/'
-    console.log("redddd",redirect)
 useEffect(() => {
   if (isAuthenticate) {
     navigate(redirect === "shipping" ? "/shipping" : "/");
